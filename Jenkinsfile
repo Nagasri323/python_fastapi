@@ -7,7 +7,7 @@ pipeline {
     stages { 
         stage('Clone') {
             steps {
-                git 'https://github.com/nileshamlapure/fastapi.git'
+                git 'https://github.com/nileshamlapure/python_fastapi.git'
             }
         }
         stage('Approval-CodeOwner') {

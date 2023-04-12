@@ -4,7 +4,12 @@ pipeline {
     environment {
         DOCKERHUB_CREDENTIALS=credentials('dockerhub')
     }
-    stages {        
+    stages { 
+        stage('Clone') {
+            steps {
+                git 'https://github.com/nileshamlapure/fastapi.git'
+            }
+        }
         stage('Approval-CodeOwner') {
             steps {
                 script {

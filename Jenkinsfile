@@ -26,7 +26,7 @@ pipeline {
                 sh 'sudo docker push 808748/fastapi:latest'
             }
         }
-        stage(Deploy on Kubernetes) {
+        stage('Deploy on Kubernetes') {
             steps {
                 sh 'kubectl apply -f Kubernetes. yml
             }

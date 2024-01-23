@@ -7,7 +7,7 @@ WORKDIR /app
 #It copies the framework and the dependencies for the FastAPI application into the working directory
 COPY requirements.txt .
 
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip==23.3.2
 
 #It will install the framework and the dependencies in the `requirements.txt` file.
 RUN pip install -r requirements.txt

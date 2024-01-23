@@ -7,7 +7,7 @@ pipeline {
     stages { 
         stage('Clone') {
             steps {
-                git 'https://github.com/Nagasri323/python_fastapi.git'
+                checkout scmGit(branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Nagasri323/python_fastapi.git']])
             }
         }
         

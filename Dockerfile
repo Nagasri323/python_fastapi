@@ -1,6 +1,8 @@
 #It instructs Docker Engine to use official python:3.10 as the base image
 FROM python:3.10
 
+RUN /bin/bash
+
 #It creates a working directory(app) for the Docker image and container
 WORKDIR /app
 

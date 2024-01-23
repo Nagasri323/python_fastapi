@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: fast-api
-        image: 808748/fastapi
+        image: nagasripalukuri/website
         resources:
           limits:
             memory: "128Mi"

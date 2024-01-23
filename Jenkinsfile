@@ -2,28 +2,20 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+        DOCKERHUB_CREDENTIALS=credentials('nagasripalukuri')
     }
     stages { 
         stage('Clone') {
             steps {
-                git 'https://github.com/nileshamlapure/python_fastapi.git'
-            }
-        }
-        stage('Approval-CodeOwner') {
-            steps {
-                script {
-                    env.Release = input message: "Provide the owner approval", ok: "Done", parameters: [string(defaultValue: 'yes', name: 'Approval Status', trim: true)]
-                    echo "Code Owner Approved"
-                }
+                git 'https://github.com/Nagasri323/python_fastapi.git'
             }
         }
         
         stage('Deploy') {
             steps {
-                sh 'sudo docker build -t 808748/fastapi:latest .'
+                sh 'sudo docker build -t nagasripalukuri/website:latest .'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                sh 'sudo docker push 808748/fastapi:latest'
+                sh 'sudo docker push nagasripalukuri/website:latest'
             }
         }
         stage('Deploy on Kubernetes') {

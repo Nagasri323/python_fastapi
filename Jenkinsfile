@@ -13,9 +13,9 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                sh 'sudo docker build -t nagasripalukuri/website:latest .'
+                sh 'docker build -t nagasripalukuri/website:latest .'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                sh 'sudo docker push nagasripalukuri/website:latest'
+                sh 'docker push nagasripalukuri/website:latest'
             }
         }
         stage('Deploy on Kubernetes') {

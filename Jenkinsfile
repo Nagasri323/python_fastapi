@@ -13,7 +13,6 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                sh 'sudo usermod -aG docker jenkins'
                 sh 'docker build -t nagasripalukuri/website:latest .'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 sh 'docker push nagasripalukuri/website:latest'
